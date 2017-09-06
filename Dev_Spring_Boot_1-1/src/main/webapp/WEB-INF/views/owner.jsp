@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,32 +15,32 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<form action="/admin/cargo" method="POST">
+			<form:form action="/admin/cargo" method="POST" modelAttribute="owner">
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Name: </label>
 					<div class="col-10">
-						<input name="name" class="form-control">
+						<form:input path="name" class="form-control"/>
 					</div>
 				</div>
 				
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Phone: </label>
 					<div class="col-10">
-						<input name="phone" class="form-control">
+						<form:input path="phone" class="form-control"/>
 					</div>
 				</div>
 				
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Count: </label>
 					<div class="col-10">
-						<input name="count" class="form-control">
+						<form:input path="count" class="form-control"/>
 					</div>
 				</div>
 				
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Address: </label>
 					<div class="col-10">
-						<input name="address" class="form-control">
+						<form:input path="address" class="form-control"/>
 					</div>
 				</div>
 				
@@ -58,9 +59,10 @@
 				<div class="form-group row">
 					<div class="col-10 offset-sm-2">
 						<button type="submit" class="btn btn-outline-success btn-sm">Save</button>
+						<a href="/admin/owner/cancel" class="btn btn-outline-warning btn-sm">Cancel</a>
 					</div>
 				</div>
-			</form>
+			</form:form>
 		</div>
 	</div>
 	<div class="container">

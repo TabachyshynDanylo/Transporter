@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import ua.entity.Brand;
 import ua.entity.Cargo;
 import ua.entity.Goods;
 import ua.entity.Owner;
@@ -29,6 +31,10 @@ public AdminOwnerController(OwnerService service) {
 	this.service = service;
 }
 
+@ModelAttribute("owner")
+public Owner getForm(){
+	return new Owner();
+}
 @GetMapping
 public String show(Model model){
 	 model.addAttribute("owners",service.findAllView());

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<form action="/admin/cargo" method="POST">
+			<form:form action="/admin/cargo" method="POST" modelAttribute="cargo">
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Goods: </label>
 					<div class="col-10">
@@ -30,28 +31,28 @@
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Weight: </label>
 					<div class="col-10">
-						<input name="weight" class="form-control">
+						<form:input path="weight" class="form-control"/>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Height: </label>
 					<div class="col-10">
-						<input name="height" class="form-control">
+						<form:input path="height" class="form-control"/>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Width: </label>
 					<div class="col-10">
-						<input name="width" class="form-control">
+						<form:input path="width" class="form-control"/>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Length: </label>
 					<div class="col-10">
-						<input name="length" class="form-control">
+						<form:input path="length" class="form-control"/>
 					</div>
 				</div>
 
@@ -83,16 +84,17 @@
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Price: </label>
 					<div class="col-10">
-						<input name="price" class="form-control">
+						<form:input path="price" class="form-control"/>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<div class="col-10 offset-sm-2">
 						<button type="submit" class="btn btn-outline-success btn-sm">Save</button>
+						<a href="/admin/cargo/cancel" class="btn btn-outline-warning btn-sm">Cancel</a>
 					</div>
 				</div>
-			</form>
+			</form:form>
 		</div>
 	</div>
 	<div class="container">

@@ -19,6 +19,9 @@ public class Goods extends AbstractEntityName{
 	public Goods(String name) {
 	}
 
+	public Goods() {
+	}
+
 	public List<Cargo> getCargos() {
 		return cargos;
 	}
