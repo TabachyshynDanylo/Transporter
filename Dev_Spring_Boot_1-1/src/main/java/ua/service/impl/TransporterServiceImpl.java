@@ -44,20 +44,12 @@ public List<TransporterView> findAllView() {
 @Override
 public void save(TransporterRequest request) {
 	Transporter transporter = new Transporter();
-	transporter.setCityArrive(request.getCityArrive());
 	transporter.setBrand(request.getBrand());
 	transporter.setModel(request.getModel());
 	transporter.setAge(Integer.valueOf(request.getAge()));
 	transporter.setCarAge(Integer.valueOf(request.getCarAge()));
 	transporter.setMaxWeight(Integer.valueOf(request.getMaxWeight()));
-	transporter.setCount(Integer.valueOf(request.getCount()));
-	transporter.setName(String.valueOf(request.getName()));
-	transporter.setRate(new BigDecimal(request.getRate().replace(',', '.')));
-	transporter.setPhotoUrl(String.valueOf(request.getPhotoUrl()));
-	transporter.setVersion(Integer.valueOf(request.getVersion()));
 	transporter.setPhone(String.valueOf(request.getPhone()));
-	transporter.setStatus(request.getStatus());
-	transporter.setId(request.getId());
 	repository.save(transporter);
 }
 
@@ -66,21 +58,12 @@ public TransporterRequest findOne(Integer id) {
 	Transporter transporter = repository.findOneRequest(id);
 	TransporterRequest request=new TransporterRequest();
 	
-	request.setCityArrive(transporter.getCityArrive());
 	request.setBrand(transporter.getBrand());
 	request.setModel(transporter.getModel());
 	request.setAge(String.valueOf(transporter.getAge()));
 	request.setCarAge(String.valueOf(transporter.getCarAge()));
 	request.setMaxWeight(String.valueOf(transporter.getMaxWeight()));
-	request.setCount(String.valueOf(transporter.getCount()));
-	request.setName(String.valueOf(transporter.getName()));
-	request.setRate(String.valueOf(transporter.getRate()));
-	request.setPhotoUrl(String.valueOf(transporter.getPhotoUrl()));
-	request.setVersion(String.valueOf(transporter.getVersion()));
 	request.setPhone(String.valueOf(transporter.getPhone()));
-	request.setStatus(transporter.getStatus());
-	request.setDateArrive(String.valueOf(transporter.getDateArrive()));
-	request.setId(transporter.getId());
 	
 	return request;
 }

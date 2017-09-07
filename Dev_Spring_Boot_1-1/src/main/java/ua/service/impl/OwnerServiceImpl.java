@@ -34,12 +34,8 @@ public Owner findByName(String name) {
 @Override
 public void save(OwnerRequest request) {
 	Owner owner = new Owner();
-	owner.setCargos(request.getCargos());
 	owner.setAddress(String.valueOf(request.getAddress()));
-	owner.setCount(Integer.valueOf(request.getCount()));
 	owner.setPhone(String.valueOf(request.getPhone()));
-	owner.setName(String.valueOf(request.getName()));
-	owner.setId(request.getId());
 	repository.save(owner);
 }
 
@@ -48,12 +44,8 @@ public OwnerRequest findOne(Integer id) {
 	Owner owner =repository.findOneRequest(id);
 	OwnerRequest request= new OwnerRequest();
 
-	request.setCargos(owner.getCargos());
 	request.setAddress(String.valueOf(owner.getAddress()));
-	request.setCount(String.valueOf(owner.getCount()));
 	request.setPhone(String.valueOf(owner.getPhone()));
-	request.setName(String.valueOf(owner.getName()));
-	request.setId(owner.getId());
 	
 	return request;
 }

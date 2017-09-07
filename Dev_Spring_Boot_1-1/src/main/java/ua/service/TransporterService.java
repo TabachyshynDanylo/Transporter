@@ -2,7 +2,6 @@ package ua.service;
 
 import java.util.List;
 
-import ua.entity.Transporter;
 import ua.model.request.TransporterRequest;
 import ua.model.view.TransporterView;
 

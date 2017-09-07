@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,11 +23,20 @@ public class Owner extends AbstractEntityName{
 		this.address = address;
 		this.cargos = cargos;
 	}
-
-
+@OneToOne
+private User user;
 
 	private String phone;
 	
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	@Column(name="_count")
 	private int count;
 	

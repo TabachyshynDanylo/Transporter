@@ -6,51 +6,27 @@ import ua.entity.Model;
 import ua.entity.Status;
 
 public class TransporterRequest {
-private Integer id;
 	
-	private String rate;
-	
-	private String maxWeight;
-	
-	private String photoUrl;
-	
-	private String version;
+	private String email;
 	
 	private String name;
+
+	private String password;
 	
-	private String count;
-	
+	private String repeatPassword;
+
+	private String maxWeight;
+
 	private String age;
-	
+
 	private String phone;
-	
+
 	private Brand brand;
-	
+
 	private Model model;
-	
+
 	private String carAge;
-	
-	private City cityArrive;
-	
-	private String dateArrive;
-	
-	private Status status;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getRate() {
-		return rate;
-	}
-
-	public void setRate(String rate) {
-		this.rate = rate;
-	}
 
 	public String getMaxWeight() {
 		return maxWeight;
@@ -58,38 +34,6 @@ private Integer id;
 
 	public void setMaxWeight(String maxWeight) {
 		this.maxWeight = maxWeight;
-	}
-
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
-
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
-	}
-
-	public String getVersion() {
-		return version;
-	}
-
-	public void setVersion(String version) {
-		this.version = version;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCount() {
-		return count;
-	}
-
-	public void setCount(String count) {
-		this.count = count;
 	}
 
 	public String getAge() {
@@ -132,28 +76,35 @@ private Integer id;
 		this.carAge = carAge;
 	}
 
-	public City getCityArrive() {
-		return cityArrive;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setCityArrive(City cityArrive) {
-		this.cityArrive = cityArrive;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getDateArrive() {
-		return dateArrive;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setDateArrive(String dateArrive) {
-		this.dateArrive = dateArrive;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public Status getStatus() {
-		return status;
+	public String getRepeatPassword() {
+		return repeatPassword;
 	}
 
-	public void setStatus(Status status) {
-		this.status = status;
+	public void setRepeatPassword(String repeatPassword) {
+		this.repeatPassword = repeatPassword;
 	}
-	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }
