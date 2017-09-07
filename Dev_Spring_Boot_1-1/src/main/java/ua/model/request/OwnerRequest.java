@@ -1,18 +1,35 @@
-package ua.model.view;
+package ua.model.request;
 
-public class OwnerView {
-	
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
+
+import ua.entity.Cargo;
+
+public class OwnerRequest {
 	private Integer id;
 
 	private String name;
 	
 	private String phone;
-	
-	private int count;
+	@Column(name="_count")
+	private String count;
 	
 	private String address;
-
 	
+	@OneToMany(mappedBy="owner")
+	private List<Cargo> cargos = new ArrayList<>();
+
+	public List<Cargo> getCargos() {
+		return cargos;
+	}
+
+	public void setCargos(List<Cargo> cargos) {
+		this.cargos = cargos;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -37,11 +54,11 @@ public class OwnerView {
 		this.phone = phone;
 	}
 
-	public int getCount() {
+	public String getCount() {
 		return count;
 	}
 
-	public void setCount(int count) {
+	public void setCount(String count) {
 		this.count = count;
 	}
 
@@ -53,14 +70,4 @@ public class OwnerView {
 		this.address = address;
 	}
 
-	public OwnerView(Integer id, String name, String phone, int count, String address) {
-		this.id = id;
-		this.name = name;
-		this.phone = phone;
-		this.count = count;
-		this.address = address;
-	}
-
-	
-	
 }

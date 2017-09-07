@@ -47,12 +47,8 @@
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Cargos: </label>
 					<div class="col-10">
-
-						<select name="cargo" class="form-control">
-							<c:forEach var="cargo" items="${cargos}">
-								<option value="${cargo}">${cargo}</option>
-							</c:forEach>
-						</select>
+<form:select path="cargo" items="${cargos}" class="form-control"/>
+						
 					</div>
 				</div>
 				

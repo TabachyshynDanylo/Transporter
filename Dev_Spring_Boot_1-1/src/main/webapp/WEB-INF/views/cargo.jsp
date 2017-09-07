@@ -19,12 +19,8 @@
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Goods: </label>
 					<div class="col-10">
-
-						<select name="goods" class="form-control">
-							<c:forEach var="goods" items="${goodss}">
-								<option value="${goods}">${goods}</option>
-							</c:forEach>
-						</select>
+						<form:select path="goods" items="${goodss}" class="form-control"/>
+						
 					</div>
 				</div>
 
@@ -59,12 +55,8 @@
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> City from: </label>
 					<div class="col-10">
-
-						<select name="cityFrom" class="form-control">
-							<c:forEach var="city" items="${city's}">
-								<option value="${city}">${city}</option>
-							</c:forEach>
-						</select>
+<form:select path="cityFrom" items="${city's}" class="form-control"/>
+						
 					</div>
 				</div>
 
@@ -72,12 +64,8 @@
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> City to: </label>
 					<div class="col-10">
-
-						<select name="cityTo" class="form-control">
-							<c:forEach var="city" items="${city's}">
-								<option value="${city}">${city}</option>
-							</c:forEach>
-						</select>
+<form:select path="cityTo" items="${city's}" class="form-control"/>
+						
 					</div>
 				</div>
 

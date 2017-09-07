@@ -10,7 +10,7 @@ public class TransporterView {
 
 	private Integer id;
 	
-	private BigDecimal rate;
+	private String rate;
 	
 	private int maxWeight;
 	
@@ -38,12 +38,15 @@ public class TransporterView {
 	
 	private String status;
 	
+	
+
+	
 
 	public TransporterView(Integer id, BigDecimal rate, int maxWeight, String photoUrl, int version, String name,
 			int count, int age, String phone, String brand, String model, int carAge, String cityArrive,
 			String dateArrive, String status) {
 		this.id = id;
-		this.rate = rate;
+		this.rate = String.valueOf(rate);
 		this.maxWeight = maxWeight;
 		this.photoUrl = photoUrl;
 		this.version = version;
@@ -67,11 +70,11 @@ public class TransporterView {
 		this.id = id;
 	}
 
-	public BigDecimal getRate() {
+	public String getRate() {
 		return rate;
 	}
 
-	public void setRate(BigDecimal rate) {
+	public void setRate(String rate) {
 		this.rate = rate;
 	}
 
@@ -180,9 +183,8 @@ public class TransporterView {
 	}
 
 	public TransporterView(Integer id, BigDecimal rate, int maxWeight, String photoUrl, int version, String name, int count, int age, String phone, String brand, String model, int carAge, String cityArrive,LocalDateTime dateArrive, Status status) {
-		super();
 		this.id = id;
-		this.rate = rate;
+		this.rate = String.valueOf(rate);
 		this.maxWeight = maxWeight;
 		this.photoUrl = photoUrl;
 		this.version = version;

@@ -1,7 +1,6 @@
 package ua.repository;
 
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +17,9 @@ public interface CargoRepository extends JpaRepository<Cargo, Integer>{
 	List<String> findAllCity();
 	@Query("SELECT new ua.model.view.CargoView(c.id, g.name, c.weight, c.height, c.width, c.length, cFrom.name, cTo.name, c.price) FROM Cargo c JOIN c.goods g JOIN c.cityFrom cFrom JOIN c.cityTo cTo")
 	List<CargoView>findAllView();
+	
+	@Query("SELECT c FROM Cargo c JOIN FETCH c.goods g JOIN FETCH c.cityFrom cFrom JOIN FETCH c.cityTo cTo LEFT JOIN FETCH c.owner o WHERE c.id=?1")
+	Cargo findOneRequest(Integer id);
 
 
 }
