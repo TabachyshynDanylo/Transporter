@@ -16,6 +16,11 @@
 	<div class="container">
 		<div class="row">
 			<form:form action="/admin/goods" method="POST" modelAttribute="goods">
+			<div class="form-group row">
+					<div class="col-10 ml-auto" style="color:red;">
+						<form:errors path="name" />
+					</div>
+				</div>
 				<div class="form-group row">
 					<label class="col-2 col-form-label"> Name:</label>
 					<div class="col-10">

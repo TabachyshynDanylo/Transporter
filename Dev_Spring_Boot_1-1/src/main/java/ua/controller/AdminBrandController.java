@@ -1,8 +1,11 @@
 package ua.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,7 +44,8 @@ public String delete(@PathVariable Integer id){
 service.delete(id);	return "redirect:/admin/brand";}
 
 @PostMapping
-public String save(@ModelAttribute("brand") Brand brand,SessionStatus status){
+public String save(@ModelAttribute("brand") @Valid Brand brand, BindingResult br,SessionStatus status, Model model){
+	if(br.hasErrors()){ return show(model);}
 	service.save(brand);
 	return cancel(status);
 }

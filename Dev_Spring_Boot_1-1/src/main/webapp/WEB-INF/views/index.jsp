@@ -18,7 +18,7 @@
 	()
 	<h2>${message}</h2>
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
-	<a href="/admin">Admin </a>
+		<a href="/admin">Admin </a>
 	</sec:authorize>
 	<sec:authorize access="isAnonymous()">
 		<a href="/login">Login </a>
@@ -29,5 +29,20 @@
 			<button class="btn btn-outline-dark btn-sm">Logout</button>
 		</form:form>
 	</sec:authorize>
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				</h2>
+				ТОП 5 ПЕРЕВІЗНИКІВ
+				</h2>
+			</div>
+			<div class="col-4">
+			</div>
+			<div class="col-4">
+				<h2>ТОП 5 КОРИСТУВАЧІВ</h2>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
