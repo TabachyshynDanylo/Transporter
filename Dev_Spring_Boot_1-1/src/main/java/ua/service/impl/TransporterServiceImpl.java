@@ -1,13 +1,14 @@
 package ua.service.impl;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import ua.entity.Transporter;
+import ua.model.filter.SimpleFilter;
 import ua.model.request.TransporterRequest;
 import ua.model.view.TransporterView;
 import ua.repository.TransporterRepository;
@@ -73,4 +74,32 @@ public void delete(Integer id) {
 	repository.delete(id);
 }
 
+
+
+@Override
+public Page<Transporter> findAllView(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
+
+@Override
+public Page<Transporter> findAllCity(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
+
+@Override
+public Page<Transporter> findAllModels(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);}
+
+@Override
+public Page<Transporter> findAllBrands(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
+private Specification<Transporter> filter(SimpleFilter filter) {
+	return (root, query, cb) -> {
+		if (filter.getSearch().isEmpty())
+			return null;
+		return cb.like(root.get("name"), filter.getSearch() + "%");
+	};
+
+}
 }

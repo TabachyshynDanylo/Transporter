@@ -1,13 +1,15 @@
 package ua.service.impl;
 
 import java.math.BigDecimal;
-import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import ua.entity.Cargo;
+import ua.model.filter.SimpleFilter;
 import ua.model.request.CargoRequest;
-import ua.model.view.CargoView;
 import ua.repository.CargoRepository;
 import ua.service.CargoService;
 
@@ -21,20 +23,6 @@ public class CargoServiceImpl  implements CargoService{
 
 	}
 
-@Override
-public List<String> findAllGoods() {
-	return repository.findAllGoods();
-}
-
-@Override
-public List<String> findAllCity() {
-	return repository.findAllCity();
-}
-
-@Override
-public List<CargoView> findAllView() {
-	return repository.findAllView();
-}
 
 
 
@@ -78,6 +66,28 @@ public void delete(Integer id) {
 	repository.delete(id);
 }
 
+@Override
+public Page<Cargo> findAllView(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
 
+@Override
+public Page<Cargo> findAllCity(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
+
+@Override
+public Page<Cargo> findAllGoods(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
+
+private Specification<Cargo> filter(SimpleFilter filter) {
+	return (root, query, cb) -> {
+		if (filter.getSearch().isEmpty())
+			return null;
+		return cb.like(root.get("name"), filter.getSearch() + "%");
+	};
+
+}
 
 }

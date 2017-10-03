@@ -4,11 +4,12 @@ import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cargo")
+@Table(name="cargo", indexes=@Index(columnList = "owner_id"))
 public class Cargo extends AbstractEntity{
 
 	public Cargo(){}

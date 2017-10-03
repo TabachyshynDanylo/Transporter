@@ -2,9 +2,14 @@ package ua.service.impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import ua.entity.Brand;
 import ua.entity.Owner;
+import ua.model.filter.SimpleFilter;
 import ua.model.request.OwnerRequest;
 import ua.model.view.OwnerView;
 import ua.repository.OwnerRepository;
@@ -53,6 +58,27 @@ public OwnerRequest findOne(Integer id) {
 @Override
 public void delete(Integer id) {
 	repository.delete(id);
+}
+
+
+
+@Override
+public Page<Owner> findAllView(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
+
+@Override
+public Page<Owner> findAllCargo(Pageable pageable, SimpleFilter filter) {
+	return repository.findAll(filter(filter), pageable);
+}
+
+private Specification<Owner> filter(SimpleFilter filter) {
+	return (root, query, cb) -> {
+		if (filter.getSearch().isEmpty())
+			return null;
+		return cb.like(root.get("name"), filter.getSearch() + "%");
+	};
+
 }
 
 }

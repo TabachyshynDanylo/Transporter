@@ -7,12 +7,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="transporter")
+@Table(name="transporter", indexes=@Index(columnList = "name",unique=true))
 public class Transporter extends AbstractEntityName{
 
 	public Transporter(){};

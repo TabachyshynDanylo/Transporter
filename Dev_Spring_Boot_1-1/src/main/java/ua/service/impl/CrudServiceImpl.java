@@ -3,8 +3,12 @@ package ua.service.impl;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import ua.entity.Brand;
+import ua.model.filter.SimpleFilter;
 import ua.service.CrudService;
 
 public class CrudServiceImpl<T, ID extends Serializable> implements CrudService<T, ID> {
@@ -20,10 +24,7 @@ public class CrudServiceImpl<T, ID extends Serializable> implements CrudService<
 		return repository.findOne(id);
 	}
 
-	@Override
-	public List<T> findAll() {
-		return repository.findAll();
-	}
+	
 
 	@Override
 	public void save(T entity) {
@@ -33,6 +34,13 @@ public class CrudServiceImpl<T, ID extends Serializable> implements CrudService<
 	@Override
 	public void delete(ID id) {
 		repository.delete(id);
+	}
+
+	
+
+	@Override
+	public List<T> findAll() {
+		return repository.findAll();
 	}
 
 }
