@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import ua.entity.City;
 import ua.entity.Transporter;
+import ua.model.view.TransporterIndexView;
 import ua.model.view.TransporterView;
 
 public interface TransporterRepository extends JpaNameRepository<Transporter,Integer>, JpaSpecificationExecutor<Transporter>{
@@ -26,7 +27,7 @@ public interface TransporterRepository extends JpaNameRepository<Transporter,Int
 	
 	@Query(value = "SELECT new ua.model.view.TransporterView(t.id, t.rate, t.maxWeight, t.photoUrl, t.version, t.name, t.count, t.age, t.phone, b.name, m.name, t.carAge, cArrive.name, t.dateArrive, t.status) FROM Transporter t JOIN t.brand b JOIN t.model m JOIN t.cityArrive cArrive",
 			countQuery="SELECT t.id FROM Transporter t JOIN t.brand b JOIN t.model m JOIN t.cityArrive cArrive")
-	Page<TransporterView>findAllView(Pageable pageable);
+	Page<TransporterIndexView>findAllView(Pageable pageable);
 	
 	@Query("SELECT t FROM Transporter t JOIN FETCH t.brand b JOIN FETCH t.model m JOIN FETCH t.cityArrive cArrive")
 	Transporter findOneRequest(Integer id);

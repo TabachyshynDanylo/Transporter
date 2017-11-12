@@ -12,7 +12,7 @@ import ua.model.request.OwnerRequest;
 import ua.service.UserService;
 
 @Controller
-@RequestMapping("/registration/transporter")
+@RequestMapping("/registration/owner")
 @SessionAttributes("transporter")
 public class OwnerRegistrationController {
 

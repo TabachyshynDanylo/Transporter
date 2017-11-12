@@ -17,7 +17,7 @@ public class Cargo extends AbstractEntity{
 	
 	
 	public Cargo(Goods goods, int weight, int height, int width, int length, City cityFrom, City cityTo,
-			BigDecimal price) {
+			BigDecimal price, String name) {
 		super();
 		this.goods = goods;
 		this.weight = weight;
@@ -27,9 +27,10 @@ public class Cargo extends AbstractEntity{
 		this.cityFrom = cityFrom;
 		this.cityTo = cityTo;
 		this.price = price;
+		this.name = name;
 	}
 
-
+	private String name;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	private Goods goods;
@@ -123,5 +124,13 @@ public class Cargo extends AbstractEntity{
 
 	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

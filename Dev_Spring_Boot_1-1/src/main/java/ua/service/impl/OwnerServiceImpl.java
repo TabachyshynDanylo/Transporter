@@ -12,12 +12,14 @@ import ua.entity.Owner;
 import ua.model.filter.SimpleFilter;
 import ua.model.request.OwnerRequest;
 import ua.model.view.OwnerView;
+import ua.repository.CargoRepository;
 import ua.repository.OwnerRepository;
 import ua.service.OwnerService;
 
 @Service
 public class OwnerServiceImpl implements OwnerService{
 	private final OwnerRepository repository;
+	
 	public OwnerServiceImpl(OwnerRepository repository) {
 		this.repository=repository;
 	}
@@ -46,7 +48,7 @@ public void save(OwnerRequest request) {
 
 @Override
 public OwnerRequest findOne(Integer id) {
-	Owner owner =repository.findOneRequest(id);
+	Owner owner =repository.findOne(id);
 	OwnerRequest request= new OwnerRequest();
 
 	request.setAddress(String.valueOf(owner.getAddress()));

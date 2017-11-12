@@ -2,6 +2,7 @@ package ua;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,10 +19,13 @@ public class DevSpringBoot11Application extends WebMvcConfigurerAdapter{
 
 	public static void main(String[] args) {
 		SpringApplication.run(DevSpringBoot11Application.class, args);
-		
-		
-		
+				
 	}
+	
+	@Value("${file.path}")
+	private String path;
+	
+	
 	@Override
 	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
 		PageableHandlerMethodArgumentResolver resolver = new PageableHandlerMethodArgumentResolver();

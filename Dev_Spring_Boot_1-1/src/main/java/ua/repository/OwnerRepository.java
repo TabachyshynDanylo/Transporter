@@ -16,13 +16,10 @@ public interface OwnerRepository extends JpaNameRepository<Owner,Integer>, JpaSp
 	@Query("SELECT c.name FROM Cargo c")
 	List<String> findAllCargo();
 
-	@Query("SELECT new ua.model.view.OwnerView(o.id, o.name, o.phone, o.count, o.address,c.name) FROM Owner o JOIN o.cargo c")
+	@Query("SELECT new ua.model.view.OwnerView(o.id, o.name, o.phone, o.count, o.address) FROM Owner o")
 	List<OwnerView>findAllView();
 	
-	@Query(value = "SELECT new ua.model.view.OwnerView(o.id, o.name, o.phone, o.count, o.address,c.name) FROM Owner o JOIN o.cargo c",
-			countQuery="SELECT o.id FROM Owner o JOIN o.cargo c")
+	@Query(value = "SELECT new ua.model.view.OwnerView(o.id, o.name, o.phone, o.count, o.address) FROM Owner o",
+			countQuery="SELECT o.id FROM Owner o")
 	Page<OwnerView>findAllView(Pageable pageable);
-	
-	@Query("SELECT o FROM Owner o JOIN FETCH o.cargo c")
-	Owner findOneRequest(Integer id);
 }

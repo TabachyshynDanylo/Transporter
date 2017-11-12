@@ -29,6 +29,11 @@
 			<button class="btn btn-outline-dark btn-sm">Logout</button>
 		</form:form>
 	</sec:authorize>
+	<form:form action="/" modelAttribute="fileRequest" enctype="multipart/form-data">
+	<input type="file" name="file">
+	<button>OK</button>
+	
+	</form:form>
 	<div class="container">
 		<div class="row">
 			<div class="col-4">

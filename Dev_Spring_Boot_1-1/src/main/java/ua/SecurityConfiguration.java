@@ -26,15 +26,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder
-		.userDetailsService(this.service)
-		.passwordEncoder(encoder());
+		.userDetailsService(this.service);
+		//.passwordEncoder(encoder());
 	}
 
 
-	@Bean
+/*	@Bean
 	PasswordEncoder encoder(){
 		return new BCryptPasswordEncoder();
-	}
+	}*/
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.formLogin()

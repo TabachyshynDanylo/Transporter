@@ -6,8 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import ua.entity.Cargo;
-import ua.entity.City;
-import ua.entity.Goods;
 import ua.model.filter.SimpleFilter;
 import ua.model.request.CargoRequest;
 import ua.model.view.CargoView;
